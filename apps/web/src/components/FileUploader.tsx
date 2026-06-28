@@ -48,10 +48,6 @@ export default function FileUploader({ onUploadSuccess, settings }: FileUploader
   const onAttendanceDrop = useCallback((acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
     if (file) {
-      if (!file.name.toUpperCase().startsWith('C')) {
-        setError('Attendance file name must start with "C"');
-        return;
-      }
       setAttendanceFile(file);
       setError(null);
     }

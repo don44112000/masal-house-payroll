@@ -403,14 +403,6 @@ export class AttendanceController {
         );
       }
 
-      // Validate attendance file naming convention (Must start with 'C')
-      if (!attendanceFile.originalname.toUpperCase().startsWith("C")) {
-        throw new HttpException(
-          'Attendance file name must start with "C" (e.g., C001.dat)',
-          HttpStatus.BAD_REQUEST
-        );
-      }
-
       // Validate user file type
       const userFileExt =
         "." + userFile.originalname.split(".").pop()?.toLowerCase();

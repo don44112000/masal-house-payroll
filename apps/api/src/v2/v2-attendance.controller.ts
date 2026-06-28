@@ -169,15 +169,6 @@ export class V2AttendanceController {
       );
     }
 
-    // Validate attendance file naming convention (Must start with 'C')
-    // The user's file is "CGKK231063174_attlog-2.dat", so we check for 'C' or 'c'
-    if (!file.originalname.toUpperCase().startsWith("C")) {
-      throw new HttpException(
-        'Attendance file name must start with "C" (e.g., C001.dat)',
-        HttpStatus.BAD_REQUEST
-      );
-    }
-
     try {
       this.logger.log(
         `Starting attendance upload for file: ${file.originalname}`
